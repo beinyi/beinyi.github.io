@@ -1,5 +1,21 @@
 
-export function CreateDate(d?: Date) {
+export type DateInfo = {
+    date: Date,
+    year: number,
+    month:
+        {
+            monthName: string,
+            monthNumber: number,
+            monthIndex: number,
+        },
+    day: {
+        dayName: string,
+        dayOfWeek: number,
+        dayOfMonth: number,
+    }
+}
+
+export function CreateDate(d?: Date): DateInfo {
     const date = d ?? new Date();
     const locale = 'default';
 
@@ -10,7 +26,6 @@ export function CreateDate(d?: Date) {
     const monthNumber = date.getMonth() + 1;
     const monthIndex = date.getMonth();
     const year = date.getFullYear();
-
 
     return (
         {

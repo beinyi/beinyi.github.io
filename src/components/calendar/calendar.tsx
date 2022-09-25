@@ -1,11 +1,12 @@
 import style from "./calendar.module.css";
 import useCalendar from "./useCalendar";
-import {getMonthsNames} from "../../utils/getMonthsNames";
+import {getMonthsNames, MonthName} from "../../utils/getMonthsNames";
 import React from "react";
+import {Day} from "../../utils/createMonth";
 
-export function Calendar() {
+function Calendar() {
 
-    const {state, functions} = useCalendar();
+    const {state, functions}: ReturnType<typeof useCalendar> = useCalendar();
 
     return (
         <div className={style.container}>
@@ -25,7 +26,7 @@ export function Calendar() {
                     {state.selectedMonth.monthName}
                 </div>
                 {state.isSelectActive && <div className={style.selectMonthMenu}>
-                    {getMonthsNames().map((month): any =>
+                    {getMonthsNames().map((month: MonthName): any =>
                         <div className={style.selectMonthOption} key={month.monthIndex}
                              data-key={month.monthIndex}
                              onClick={(e) =>
@@ -34,13 +35,13 @@ export function Calendar() {
             </div>
 
             <div className={style.header}>
-                {functions.getDayNames().map(dayName =>
+                {functions.getDayNames().map((dayName: string) =>
                     <div key={dayName}>{dayName}</div>
                 )}
             </div>
 
             <div className={style.body}>
-                {functions.getDaysForRender().map((day): any =>
+                {functions.getDaysForRender().map((day: Day) =>
                     <div className={day.isCurrentMonth ?
                         day.dayOfMonth===state.selectedDay.dayOfMonth ?
                             style.activeDay
@@ -55,3 +56,5 @@ export function Calendar() {
         </div>
     )
 }
+
+export default Calendar;

@@ -1,17 +1,29 @@
 import {CreateDate} from "./createDate"
 
-export const AmountDaysOfMonth = (monthIndex: number, year: number) =>
+export type Day = {
+    dayOfWeek: number,
+    dayOfMonth: number,
+    monthNumber: number,
+    isCurrentMonth: boolean
+}
+
+export type Month = {
+    days: Array<Day>,
+    daysForRender: Array<Day>
+}
+
+const AmountDaysOfMonth = (monthIndex: number, year: number): number =>
     new Date(year, monthIndex + 1, 0).getDate();
 
-export function CreateMonth(d?: Date) {
+export function CreateMonth(d?: Date): Month {
     const monthIndex = d?.getMonth() ?? new Date().getMonth();
     const year = d?.getFullYear() ?? new Date().getFullYear();
 
-    const lastDays = [];
-    const nextDays = [];
-    const days = [];
+    const lastDays: Array<Day> = [];
+    const nextDays: Array<Day> = [];
+    const days: Array<Day> = [];
 
-    const getDay = (d: number, isCurrentMonth: boolean) => {
+    const getDay = (d: number, isCurrentMonth: boolean): Day => {
         const {dayOfWeek, dayOfMonth} = CreateDate(new Date(year, monthIndex, d)).day;
         const monthNumber = CreateDate(new Date(year, monthIndex, d)).month.monthNumber;
         return (
@@ -43,13 +55,12 @@ export function CreateMonth(d?: Date) {
         }
     }
 
-    const daysForRender = [...lastDays, ...days, ...nextDays];
+    const daysForRender: Array<Day> = [...lastDays, ...days, ...nextDays];
 
     return (
         {
             days,
-            daysForRender,
-
+            daysForRender
         }
     )
 }

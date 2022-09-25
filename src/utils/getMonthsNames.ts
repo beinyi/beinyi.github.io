@@ -1,13 +1,15 @@
 import {CreateDate} from "./createDate";
 
-export function getMonthsNames() {
+export type MonthName = {
+    monthNumber: number,
+    monthName: string,
+    monthIndex: number
+}
+
+export function getMonthsNames(): Array<MonthName> {
     const date = new Date();
 
-    const monthsNames: {
-        monthNumber: number;
-        monthName: string;
-        monthIndex: number;
-    }[] = Array.from({ length: 12 });
+    const monthsNames: Array<MonthName> = Array.from({ length: 12 });
 
     monthsNames.forEach((_, i) => {
         const {monthNumber, monthName, monthIndex} = CreateDate(new Date(date.getFullYear(),
