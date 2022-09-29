@@ -1,0 +1,21 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+.apiButton {
+    background-color: var(--main);
+    color: white;
+    border-radius: var(--border-radius-button);
+    width: 15%;
+    min-width: 100px;
+    margin: 2%;
+    padding: 1%;
+    cursor: pointer;
+}
+
+.apiButton:hover {
+    background-color: var(--active);
+}
