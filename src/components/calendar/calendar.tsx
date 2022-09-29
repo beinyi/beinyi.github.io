@@ -1,8 +1,9 @@
 import style from "./calendar.module.css";
 import useCalendar from "./useCalendar";
-import {getMonthsNames, MonthName} from "../../utils/getMonthsNames";
+import {getMonthsNames} from "../../utils/getMonthsNames";
 import React from "react";
 import {Day} from "../../utils/createMonth";
+import {Month} from "../../utils/createDate";
 
 function Calendar() {
 
@@ -26,7 +27,7 @@ function Calendar() {
                     {state.selectedMonth.monthName}
                 </div>
                 {state.isSelectActive && <div className={style.selectMonthMenu}>
-                    {getMonthsNames().map((month: MonthName): any =>
+                    {getMonthsNames().map((month: Month): any =>
                         <div className={style.selectMonthOption} key={month.monthIndex}
                              data-key={month.monthIndex}
                              onClick={(e) =>

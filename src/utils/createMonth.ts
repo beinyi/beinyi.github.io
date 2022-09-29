@@ -7,7 +7,7 @@ export type Day = {
     isCurrentMonth: boolean
 }
 
-export type Month = {
+export type MonthDays = {
     days: Array<Day>,
     daysForRender: Array<Day>
 }
@@ -15,7 +15,7 @@ export type Month = {
 const AmountDaysOfMonth = (monthIndex: number, year: number): number =>
     new Date(year, monthIndex + 1, 0).getDate();
 
-export function CreateMonth(d?: Date): Month {
+export function CreateMonth(d?: Date): MonthDays {
     const monthIndex = d?.getMonth() ?? new Date().getMonth();
     const year = d?.getFullYear() ?? new Date().getFullYear();
 
@@ -46,12 +46,11 @@ export function CreateMonth(d?: Date): Month {
         }
     }
 
-    // @ts-ignore не даёт использовать at
-    if (days.at(-1).dayOfWeek !== 6) {
-        // @ts-ignore не даёт использовать at
-        for (let i: number = days.at(-1).dayOfMonth; i < days.at(-1).dayOfMonth + (6 - days.at(-1).dayOfWeek); i++) {
-            // @ts-ignore не даёт использовать at
-            nextDays[i - days.at(-1).dayOfMonth] = getDay(i + 1, false);
+
+    if (days[days.length-1].dayOfWeek !== 6) {
+        for (let i: number = days[days.length-1].dayOfMonth;
+             i < days[days.length-1].dayOfMonth + (6 - days[days.length-1].dayOfWeek); i++) {
+            nextDays[i - days[days.length-1].dayOfMonth] = getDay(i + 1, false);
         }
     }
 

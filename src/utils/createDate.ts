@@ -1,18 +1,19 @@
 
 export type DateInfo = {
-    date: Date,
+    dateString: string,
     year: number,
-    month:
-        {
-            monthName: string,
-            monthNumber: number,
-            monthIndex: number,
-        },
+    month: Month
     day: {
         dayName: string,
         dayOfWeek: number,
         dayOfMonth: number,
     }
+}
+
+export type Month = {
+    monthName: string,
+    monthNumber: number,
+    monthIndex: number,
 }
 
 export function CreateDate(d?: Date): DateInfo {
@@ -26,10 +27,12 @@ export function CreateDate(d?: Date): DateInfo {
     const monthNumber = date.getMonth() + 1;
     const monthIndex = date.getMonth();
     const year = date.getFullYear();
+    const dateString = date.toString();
+
 
     return (
         {
-            date,
+            dateString,
             year,
             month:
                 {

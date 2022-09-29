@@ -1,15 +1,20 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {CreateDate, DateInfo} from "../../utils/createDate";
 import {CreateMonth, Day} from "../../utils/createMonth";
 import {setSelectedDate} from "../../features/generalSlice";
-import {useAppDispatch} from "../../hook";
+import {useAppDispatch, useAppSelector} from "../../hook";
 
 function useCalendar() {
-    const [selectedMonth, setSelectedMonth] = useState(CreateDate().month);
-    const [selectedYear, setSelectedYear] = useState(CreateDate().year);
-    const [selectedDay, setSelectedDay] = useState(CreateDate().day)
+    const [selectedMonth, setSelectedMonth] = useState(useAppSelector(state => state.general.selectedDate.month));
+    const [selectedYear, setSelectedYear] = useState(useAppSelector(state => state.general.selectedDate).year);
+    const [selectedDay, setSelectedDay] = useState(useAppSelector(state => state.general.selectedDate).day)
     const [isSelectActive, setSelectActive] = useState(false);
     const dispatch = useAppDispatch();
+
+    useEffect(() =>{
+        dispatch(setSelectedDate(getDateInfo()));
+        console.log(getDateInfo().dateString)
+    }, [selectedMonth, selectedYear, selectedDay])
 
     const getDayNames = (): Array<string> => {
         const dayNames = ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'];
@@ -27,27 +32,24 @@ function useCalendar() {
     const onSelectMonth = (e: any): void => {
         setSelectedMonth(CreateDate(new Date(selectedYear, e.target.dataset.key)).month);
         setSelectActive(!isSelectActive);
-        dispatch(setSelectedDate(CreateDate(new Date(selectedYear, e.target.dataset.key, selectedDay.dayOfMonth))));
     }
 
     const onSelectDay = (e: any): void => {
         setSelectedDay(CreateDate(new Date(selectedYear, selectedMonth.monthIndex, e.target.dataset.key)).day)
-        dispatch(setSelectedDate(CreateDate(new Date(selectedYear, selectedMonth.monthIndex, e.target.dataset.key))));
     }
 
     const onLastYear = (): void => {
-        dispatch(setSelectedDate(CreateDate(new Date(selectedYear-1, selectedMonth.monthIndex, selectedDay.dayOfMonth))))
         setSelectedYear(selectedYear - 1);
     }
 
     const onNextYear = (): void => {
-        dispatch(setSelectedDate(CreateDate(new Date(selectedYear+1, selectedMonth.monthIndex, selectedDay.dayOfMonth))))
         setSelectedYear(selectedYear + 1);
     }
 
     const getDateInfo = (): DateInfo => {
+        const dateString = new Date(selectedYear, selectedMonth.monthIndex, selectedDay.dayOfMonth).toString();
         return {
-            date: new Date(selectedYear, selectedMonth.monthIndex, selectedDay.dayOfMonth),
+            dateString: dateString,
             year: selectedYear,
             month:
                 {
