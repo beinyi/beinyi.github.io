@@ -1,37 +1,34 @@
+
 .header {
     display: grid;
     grid-template-columns: 1fr 1fr;
     /*grid-column-gap: 20px;*/
-
-    background-color: #282c34;
+grid-column: 1 / 3;
+    background-color: var(--main);
 
     align-items: center;
     justify-content: center;
     font-size: calc(4px + (1 + 2 * 0.7) * ((100vw - 320px)/1920));
-    color: white;
+    color: var(--text);
 }
 
 .calendar {
     display: grid;
     justify-self: end;
-    margin: 20px;
+    margin: 5%;
     font-size: 18px;
 }
 
 .calendarButton {
-    border-radius: 15px;
-    background-color: white;
+    border-radius: var(--border-radius-button);
+    background-color: var(--text);
     padding: 5px;
-    color: #282c34;
-    box-shadow: 3px 3px rgba(255,255,255, 0.3);
+    color: var(--main);
     user-select: none;
 }
 
 .calendarButton:hover {
-    background-color: #669999;
-    box-shadow: 2px 2px rgba(255,255,255, 0.7);
-    transform: translate3d(0, 1px, -1px);
-    transition: transform 0.3s, box-shadow 0.15s;
+    background-color: var(--active);
 
 }
 
