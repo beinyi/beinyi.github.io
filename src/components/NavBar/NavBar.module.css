@@ -1,0 +1,17 @@
+nav {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--main);
+    justify-self: start;
+    width: 150px;
+}
+
+.link {
+     text-decoration: none;
+     color: var(--text);
+     padding: 5%;
+ }
+
+.link:hover {
+    color: var(--active);
+}
