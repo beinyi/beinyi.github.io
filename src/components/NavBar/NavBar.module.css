@@ -9,7 +9,11 @@ nav {
 .link {
      text-decoration: none;
      color: var(--text);
-     padding: 5%;
+
+ }
+
+ .linksBlock {
+    padding: 50%;
  }
 
 .link:hover {
