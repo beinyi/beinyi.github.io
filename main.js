@@ -3441,43 +3441,43 @@ function App() {
     className: "screen",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Routes, {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
-        path: nameurl + "",
+        path: nameurl + "/",
         element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_components_Menu_Menu__WEBPACK_IMPORTED_MODULE_0__["default"], {})
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
-        path: nameurl + "make_order",
+        path: nameurl + "/make_order",
         element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_components_Guide__WEBPACK_IMPORTED_MODULE_3__["default"], {
           guideMap: _guide_maps_servicesMap__WEBPACK_IMPORTED_MODULE_5__["default"],
           credits: _guide_maps_servicesMap__WEBPACK_IMPORTED_MODULE_5__.servicesCredits
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
-        path: nameurl + "pay_guide",
+        path: nameurl + "/pay_guide",
         element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_components_Guide__WEBPACK_IMPORTED_MODULE_3__["default"], {
           guideMap: _guide_maps_payMap__WEBPACK_IMPORTED_MODULE_4__["default"],
           credits: _guide_maps_payMap__WEBPACK_IMPORTED_MODULE_4__.payCredits
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
-        path: nameurl + "transaction_guide",
+        path: nameurl + "/transaction_guide",
         element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_components_Guide__WEBPACK_IMPORTED_MODULE_3__["default"], {
           guideMap: _guide_maps_transactionMap__WEBPACK_IMPORTED_MODULE_6__["default"]
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
-        path: nameurl + "accruals_guide",
+        path: nameurl + "/accruals_guide",
         element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_components_Guide__WEBPACK_IMPORTED_MODULE_3__["default"], {
           guideMap: _guide_maps_accrualsMap__WEBPACK_IMPORTED_MODULE_7__["default"]
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
-        path: nameurl + "call_to_mc",
+        path: nameurl + "/call_to_mc",
         element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_components_Guide__WEBPACK_IMPORTED_MODULE_3__["default"], {
           guideMap: _guide_maps_callMap__WEBPACK_IMPORTED_MODULE_8__["default"],
           credits: _guide_maps_callMap__WEBPACK_IMPORTED_MODULE_8__.callCredits
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
-        path: nameurl + "check_order",
+        path: nameurl + "/check_order",
         element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_components_Guide__WEBPACK_IMPORTED_MODULE_3__["default"], {
           guideMap: _guide_maps_checkOrderMap__WEBPACK_IMPORTED_MODULE_9__["default"]
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
-        path: "dev",
+        path: "/dev",
         element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_components_Main_Sliders_Request__WEBPACK_IMPORTED_MODULE_10__["default"], {
           activation: _components_Main_buttons__WEBPACK_IMPORTED_MODULE_11__.navButtons[0],
           onNextStep: function onNextStep() {}
@@ -45811,7 +45811,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var root = react_dom_client__WEBPACK_IMPORTED_MODULE_1__.createRoot(document.getElementById('root'));
 root.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)((react__WEBPACK_IMPORTED_MODULE_0___default().StrictMode), {
-  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.HashRouter, {
+  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.BrowserRouter, {
+    basename: "/infohelpmobile",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_App__WEBPACK_IMPORTED_MODULE_2__["default"], {})
   })
 }));
